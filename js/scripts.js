@@ -14,15 +14,36 @@ const Account = (function(){
     deposit(depositAmount){
       this.balance += depositAmount;
     }
+    reset(){
+      this.name = "";
+      this.balance = 0;
+    }
   }
   return Account;
 })();
 
 //front-end
 const updateDomBalance = function(balance){
-  $("#currentBalanceDisplay").text(`Ƀ ${balance.toLocaleString()}`);
+  $("#currentBalanceDisplay").text(`Ƀ${balance.toLocaleString()}`);
 }
 
+const hideRegistration = function(){
+  $("#registrationDisplay").hide();
+  $("#titleHeader p").show();
+  $("#transactionDisplay").show();
+  $("#balanceDisplay").show();
+}
+
+const newRegistration = function(){
+  $("#registrationDisplay").show();
+  $("#titleHeader p").hide();
+  $("#transactionDisplay").hide();
+  $("#balanceDisplay").hide();
+  $("#fullNameInput").val("");
+  $("#initialDepositInput").val("");
+  $("#withdrawInput").val("");
+  $("#depositInput").val("");
+}
 
 $(document).ready(function(){
 
@@ -33,6 +54,9 @@ $(document).ready(function(){
 
     let newAccount = new Account(fullName, initialDeposit);
     updateDomBalance(newAccount.balance);
+
+    $("#titleHeader p").text(`Welcome ${newAccount.name}, thank you for trusting this shady shady student project with your cold hard bitcoin. We swear this wasn't a mistake.`);
+    hideRegistration();
 
     $("#transactButton").click(function(){
       let withdrawInput = Math.abs(Number($("#withdrawInput").val()));
@@ -45,7 +69,10 @@ $(document).ready(function(){
 
     });
 
-
+    $("#newAccountButton").click(function(){
+      newRegistration();
+      newAccount.reset();
+    });
 
   });
 

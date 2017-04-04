@@ -1,0 +1,17 @@
+#transactionDisplay, #balanceDisplay {
+  display: none;
+}
+
+#newAccountButton {
+  margin-top: 15px;
+}
+
+#titleHeader h1 {
+  font-size: 4em;
+  margin-bottom: 0px;
+}
+
+#titleHeader p {
+  font-size: 18px;
+  display: none;
+}

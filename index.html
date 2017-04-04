@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+      <script src="js/scripts.js"></script>
+      <title>BitCoin Bank of Oregon</title>
+    </head>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Register Account</h1>
+            <form id="registrationForm">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullNameInput" placeholder="John Smith">
+              </div>
+              <div class="form-group">
+                <label for="initialDeposit">Initial Deposit</label>
+                <input type="number" class="form-control" id="initialDepositInput" placeholder="Ƀ1,000,000,000">
+              </div>
+              <button type="submit" class="btn btn-primary">Apply</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+          <h1>Deposit/Withdraw</h1>
+          <form>
+            <div class="form-group">
+              <label for="depositAmount">Deposit Amount</label>
+              <input type="number" class="form-control" id="depositInput" placeholder="Ƀ1,000,000,000">
+            </div>
+            <div class="form-group">
+              <label for="withdrawAmount">Withdraw Amount</label>
+              <input type="number" class="form-control" id="withdrawInput" placeholder="Ƀ1,000,000,000">
+            </div>
+            <span id="transactButton" class="btn btn-primary">Transact</span>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Current Balance</h1>
+          <h3 id="currentBalanceDisplay">Ƀ 0</h3>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

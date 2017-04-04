@@ -28,21 +28,24 @@ const updateDomBalance = function(balance){
 }
 
 const hideRegistration = function(){
-  $("#registrationDisplay").hide();
-  $("#titleHeader p").show();
-  $("#transactionDisplay").show();
-  $("#balanceDisplay").show();
+  $("#registrationDisplay").fadeOut(1000, function(){
+    $("#titleHeader p").fadeIn();
+    $("#transactionDisplay").fadeIn();
+    $("#balanceDisplay").fadeIn();
+  });
 }
 
 const newRegistration = function(){
-  $("#registrationDisplay").show();
-  $("#titleHeader p").hide();
-  $("#transactionDisplay").hide();
-  $("#balanceDisplay").hide();
-  $("#fullNameInput").val("");
-  $("#initialDepositInput").val("");
-  $("#withdrawInput").val("");
-  $("#depositInput").val("");
+
+  $("#titleHeader p").fadeOut();
+  $("#transactionDisplay").fadeOut();
+  $("#balanceDisplay").fadeOut(function(){
+    $("#fullNameInput").val("");
+    $("#initialDepositInput").val("");
+    $("#withdrawInput").val("");
+    $("#depositInput").val("");
+    $("#registrationDisplay").fadeIn();
+  });
 }
 
 $(document).ready(function(){
@@ -55,7 +58,7 @@ $(document).ready(function(){
     let newAccount = new Account(fullName, initialDeposit);
     updateDomBalance(newAccount.balance);
 
-    $("#titleHeader p").text(`Welcome ${newAccount.name}, thank you for trusting this shady shady student project with your cold hard bitcoin. We swear this wasn't a mistake.`);
+    $("#titleHeader p").text(`Welcome${newAccount.name === "" ? "" : " "}${newAccount.name}, thank you for trusting this shady shady student project with your cold hard bitcoin. We swear this wasn't a mistake.`);
     hideRegistration();
 
     $("#transactButton").click(function(){
